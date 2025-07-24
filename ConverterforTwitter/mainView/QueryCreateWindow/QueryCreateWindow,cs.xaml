@@ -25,8 +25,10 @@
                     <TextBlock Text="ビットレート"/>
                 </CheckBox>
                 <StackPanel Orientation="Horizontal" 
-                            Margin="0,10,0,0">
+                            Margin="0,10,0,0"
+                            PreviewKeyDown="StackPanel_PreviewKeyDown">
                     <TextBox Name="BitRateNumBox"
+                             FontSize="16"
                              Height="24" 
                          Text="{Binding BitRateInput,UpdateSourceTrigger=PropertyChanged,BindsDirectlyToSource=True}"
                          Margin="10,-12,0,0"
@@ -75,7 +77,9 @@
                      SelectedIndex="0"
                     Text="{Binding FileExtentionName,UpdateSourceTrigger=PropertyChanged}"
                     x:Name="FileNameExtentionBox" Width="100" Margin="10,0,10,0"
-                    SelectionChanged="FileNameExtentionBox_SelectionChanged"
+                   
+                   FontSize="{Binding FontSize,ElementName=BitRateNumBox}"
+SelectionChanged="FileNameExtentionBox_SelectionChanged"
                     />
             </StackPanel>
 
@@ -101,7 +105,8 @@
                       DisplayMemberPath="Key"
                       SelectedItem="Value"
                       SelectedIndex="0"
-                      Width="150" Margin="20,0,0,0"/>
+                      Width="150" Margin="20,0,0,0"
+                         FontSize="{Binding FontSize,ElementName=BitRateNumBox}"/>
                     </StackPanel>
 
                     <!-- オーディオコーデックの設定 -->
@@ -122,7 +127,9 @@
                       Text="{Binding VideoCodecs, UpdateSourceTrigger=PropertyChanged}"
                       SelectedValuePath="Value"
                       DisplayMemberPath="Key"
-                      SelectedIndex="0"/>
+                      SelectedIndex="0"
+                         FontSize="{Binding FontSize,ElementName=BitRateNumBox}"
+                      />
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
@@ -154,7 +161,9 @@
                 x:Name="MakeProfile" Content="プロファイル作成" Width="100" 
               />
                 <Label Content="プロファイル名" />
-                <TextBox x:Name="profileNameBox" Width="200" Height="20"/>
+                <TextBox x:Name="profileNameBox" Width="200" 
+           FontSize="{Binding FontSize,ElementName=BitRateNumBox}" 
+          Height="20"/>
             </StackPanel>
 
         </StackPanel>

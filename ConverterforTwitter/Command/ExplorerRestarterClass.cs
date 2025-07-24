@@ -1,4 +1,5 @@
 ﻿using HaruaConvert.Methods;
+using HaruaConvert.Parameter;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -6,7 +7,7 @@ namespace HaruaConvert.Command
 {
     internal class ExplorerRestarterClass
     {
-        internal async Task ExPlorerRestarter(Terminate_ProcessClass tpc)
+        internal async Task ExPlorerRestarter(Terminate_ProcessClass tpc, ParamField param)
         {
             var getExplorer = Process.GetProcessesByName("Explorer");
 
@@ -27,6 +28,9 @@ namespace HaruaConvert.Command
                 );                                                            //start explorer.exe
 
             prosessStart.ProcessStartMethod(sessions);
+
+            var exploerStarter = new OpernExplorerClass();
+            exploerStarter.OpenExplorer(param);
         }
     }
 }

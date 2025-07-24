@@ -1,10 +1,6 @@
 ﻿using HaruaConvert.Methods;
 using HaruaConvert.Parameter;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -16,12 +12,12 @@ namespace HaruaConvert.Initilize_Method
         {
             paramField = _paramfield;
         }
-        ParamField paramField {  get; set; }
+        ParamField paramField { get; set; }
 
 
         public List<CheckBox> InitializeChildCheckBox(Window main, List<CheckBox> CheckBoxList)
         {
-         
+
             CheckBoxList = new List<CheckBox>();
 
 
@@ -31,12 +27,22 @@ namespace HaruaConvert.Initilize_Method
             // 子要素を列挙し、適切なリストに追加
             main.WalkInChildren(child =>
             {
+
+
                 if (child is CheckBox checkBox)
                 {
-                    CheckBoxList.Add(checkBox);
+
+                    var chidCheckBox = child as CheckBox;
+
+                    chidCheckBox.Checked += (sender, e) =>
+                    {
+                        paramField.isCheckerChanged = true;
+                    };
+
+                    CheckBoxList.Add(chidCheckBox);
                 }
 
-               
+
 
             });
             return CheckBoxList;

@@ -183,6 +183,7 @@ namespace HaruaConvert
             {
                 th1 = new Thread(async () => await FfmpegProcessingAsnc());
                 Lw = new LogWindow(paramField);
+
                 Lw.Show();
                 firstlogWindow = true;
 
@@ -252,6 +253,7 @@ namespace HaruaConvert
             Debug.WriteLine($"　{ts}");
             Debug.WriteLine($"　{ts.Hours}時間 {ts.Minutes}分 {ts.Seconds}秒 {ts.Milliseconds}ミリ秒");
             Debug.WriteLine($"　{sw.ElapsedMilliseconds}ミリ秒");
+
             return satisfied;
         }
 

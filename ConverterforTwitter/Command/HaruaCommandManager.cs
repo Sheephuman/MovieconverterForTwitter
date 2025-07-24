@@ -1,11 +1,5 @@
-﻿using HaruaConvert.Methods;
-using HaruaConvert.Parameter;
-using HaruaConvert.UserControls;
-using HaruaConvert.userintarface;
-using Moq;
-using System;
+﻿using HaruaConvert.userintarface;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using WpfApp3.Parameter;
 
@@ -16,7 +10,7 @@ namespace HaruaConvert.Command
         MainWindow _main;
         QueryCreateWindow qi;
 
-        
+
 
         public HaruaCommandManager(MainWindow main)
         {
@@ -68,7 +62,7 @@ namespace HaruaConvert.Command
         {
             ExplorerRestarterClass explorerRestarterClass = new ExplorerRestarterClass();
             Terminate_ProcessClass tpc = null;
-            await explorerRestarterClass.ExPlorerRestarter(tpc);
+            await explorerRestarterClass.ExPlorerRestarter(tpc, _main.paramField);
 
         }
 
@@ -108,14 +102,14 @@ namespace HaruaConvert.Command
             if (msbr == MessageBoxResult.Yes)
             {
 
-                _main.ParamText.Text = ClassShearingMenbers.defaultQuery ;
+                _main.ParamText.Text = ClassShearingMenbers.defaultQuery;
             }
 
             else
                 return;
-            
+
         }
-        
+
         private void QueryBuildWindow_Open(object sender, ExecutedRoutedEventArgs e)
         {
             //// モックの作成例
@@ -123,24 +117,24 @@ namespace HaruaConvert.Command
             //mockOpenExplorer.Setup(m => m.OpenExplorer(It.IsAny<ParamField>()));
             ///特定の型（この場合は ParamField 型）の任意の値が渡されたことを示すために使われます。
             ///
-            IOpenExplorer openI = new OpernExplorerClass();
+            // IOpenExplorer openI = new OpernExplorerClass();
 
-            
 
-            var maintest = new MainWindow(openI);
-            
-            maintest._openExplorerTest.OpenExplorer(_main.paramField);
-            
+
+            // var maintest = new MainWindow(openI);
+
+            //  maintest._openExplorerTest.OpenExplorer(_main.paramField);
+
 
 
 
             if (_main.paramField.isClosedQueryBuildWindow)
             {
                 qi = new QueryCreateWindow(_main);
-                
+
             }
-           
-            if (!qi.IsVisible || qi.WindowState == WindowState.Minimized )
+
+            if (!qi.IsVisible || qi.WindowState == WindowState.Minimized)
             {
                 qi.WindowState = WindowState.Normal;
 
@@ -150,7 +144,7 @@ namespace HaruaConvert.Command
             {
                 qi.Activate();
                 qi.Focus();
-            }  
+            }
 
 
 

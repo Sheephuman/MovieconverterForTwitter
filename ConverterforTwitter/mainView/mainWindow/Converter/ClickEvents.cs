@@ -103,8 +103,8 @@ namespace HaruaConvert
             try
             {
 
-                //未編集なら保存処理を行わない
-                if (paramField.isParam_Edited)
+                //編集済みなら保存処理・チェックボックスが変更されていたら保存処理
+                if (paramField.isEditedParam || paramField.isCheckerChanged)
                     ParamSave_Procedure();
 
                 // 終了処理が完了したことを通知する変数
@@ -149,7 +149,7 @@ namespace HaruaConvert
 
 
                     if (ExplorerExitChecker.IsChecked.Value)
-                        await exes.ExPlorerRestarter(tpc);
+                        await exes.ExPlorerRestarter(tpc, main.paramField);
 
 
 
@@ -244,17 +244,18 @@ namespace HaruaConvert
             //if (!isUPDownClicked)
             //{ return; }
 
-            if (paramField.isParam_Edited)
+            if (paramField.isEditedParam)
             {
 
                 if (MessageBox.Show("LabelかParameterが変更されているわ。保存するの？", "Information", MessageBoxButton.YesNo,
                        MessageBoxImage.Information) == MessageBoxResult.Yes)
                 {
                     ParamSave_Procedure();
-                    paramField.isParam_Edited = false;
+                    paramField.isEditedParam = false;
                 }
 
             }
+
             Generate_ParamSelector();
 
             ParamSelector_SetText(sender, true);

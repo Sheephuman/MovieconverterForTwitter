@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HaruaConvert", "WpfApp3\HaruaConvert.csproj", "{43B11CD5-A6A1-468A-98C4-456B0A9BB6E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConverterforTwitter", "ConverterforTwitter\ConverterforTwitter.csproj", "{43B11CD5-A6A1-468A-98C4-456B0A9BB6E3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ソリューション項目", "ソリューション項目", "{3DB6A894-44AD-4A4F-B5F6-057168CBAEDD}"
 	ProjectSection(SolutionItems) = preProject

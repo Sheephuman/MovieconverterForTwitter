@@ -9,7 +9,7 @@
     <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="13" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="13" />
@@ -19,7 +19,7 @@
         <TextBox 
            
             Name="NUDTextBox" Margin="00,0,0,0" Width="60" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" TextAlignment="Right"
-            PreviewKeyDown="NUDTextBox_PreviewKeyDown" PreviewKeyUp="NUDTextBox_PreviewKeyUp" TextChanged="NUDTextBox_TextChanged"
+            TextChanged="NUDTextBox_TextChanged"
             PreviewMouseWheel ="NUDTextBox_PreviewMouseWheel" 
             />
         <RepeatButton Name="NUDButtonUP"  Grid.Column="1" Grid.Row="0" FontSize="8" FontFamily="Marlett" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="NUDButtonUP_Click">5</RepeatButton>

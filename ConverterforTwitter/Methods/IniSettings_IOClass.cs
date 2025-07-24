@@ -1,19 +1,13 @@
 ﻿using HaruaConvert.Parameter;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Xml.Resolvers;
-using static HaruaConvert.Parameter.ParamField;
 
 namespace HaruaConvert.Methods
 {
     public class IniSettings_IOClass
     {
-        public void IniSettingWriter(ParamField paramField,MainWindow main)
+        public void IniSettingWriter(ParamField paramField, MainWindow main)
         {
             try
             {
@@ -47,9 +41,9 @@ namespace HaruaConvert.Methods
 
             try
             {
-                main.Left = Convert.ToDouble(IniDefinition.GetValueOrDefault(paramField.iniPath, "WindowsLocate", "WindowLeft", 25));
+                main.Left = Convert.ToDouble(IniDefinition.GetValueOrDefault<double>(paramField.iniPath, "WindowsLocate", "WindowLeft", 25));
 
-                main.Top = Convert.ToDouble(IniDefinition.GetValueOrDefault(paramField.iniPath, "WindowsLocate", "WindowTop", 50));
+                main.Top = Convert.ToDouble(IniDefinition.GetValueOrDefault<double>(paramField.iniPath, "WindowsLocate", "WindowTop", 50));
 
                 ParamField.Maintab_InputDirectory = IniDefinition.GetValueOrDefault(paramField.iniPath, "Directory", IniSettingsConst.ConvertDirectory, "");
                 //IniDefinition.SetValue(paramField.iniPath, "Directry", "ConvertDirectory", ParamField.ConvertDirectory);
@@ -59,18 +53,18 @@ namespace HaruaConvert.Methods
                 ParamField.ParamTab_OutputSelectorDirectory = IniDefinition.GetValueOrDefault(paramField.iniPath, "Directory", IniSettingsConst.OutputSelectorDirectory, "");
                 ParamField.ParamTab_InputSelectorDirectory = IniDefinition.GetValueOrDefault(paramField.iniPath, "Directory", IniSettingsConst.InputSelectorDirectory, "");
 
-                
+
                 main.NumericUpDown1.NUDTextBox.Text = IniDefinition.GetValueOrDefault(paramField.iniPath, IniSettingsConst.Selector_Generate, IniSettingsConst.Selector_Generate, "1");
-                
-               string opacityValue = IniDefinition.GetValueOrDefault(paramField.iniPath, IniSettingsConst.Apperance, IniSettingsConst.BackImageOpacity, main.harua_View.MainParams[0].BackImageOpacity.ToString(CultureInfo.CurrentCulture));
-                main.opacitySlider.Value = double.Parse(opacityValue,CultureInfo.CurrentCulture);
+
+                string opacityValue = IniDefinition.GetValueOrDefault(paramField.iniPath, IniSettingsConst.Apperance, IniSettingsConst.BackImageOpacity, main.harua_View.MainParams[0].BackImageOpacity.ToString(CultureInfo.CurrentCulture));
+                main.opacitySlider.Value = double.Parse(opacityValue, CultureInfo.CurrentCulture);
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
 
-            
+
             }
         }
     }

@@ -288,7 +288,7 @@ namespace HaruaConvert.mainUI.mainWindow
             ///http://www.madeinclinic.jp/c/20180421/
             else if (e.KeyboardDevice.Modifiers == ModifierKeys.Shift && e.Key == Key.Enter)
             {
-                _main.paramField.isParam_Edited = true;
+                _main.paramField.isEditedParam = true;
 
 
 
